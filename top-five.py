@@ -1,7 +1,7 @@
 import instaloader;
 
 bot = instaloader.Instaloader()
-bot.login(user="php.arretado", password="")
+bot.login(user="auricelio.fm", passwd="")
 
 top_results = instaloader.TopSearchResults(bot.context, 'python')
 

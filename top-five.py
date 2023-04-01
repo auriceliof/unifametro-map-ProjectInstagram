@@ -1,7 +1,9 @@
 import instaloader;
+import pandas as pd;
+
 
 bot = instaloader.Instaloader()
-bot.login(user="auricelio.fm", passwd="")
+# bot.login(user="auricelio.fm", passwd="")
 
 top_results = instaloader.TopSearchResults(bot.context, 'python')
 
@@ -16,5 +18,21 @@ list_profiles = []
 for profile in profiles:
     list_profiles.append(profile.full_name)
 
-print(list_hashtags)
-print(list_profiles)
+lenght_hashtags = len(list_hashtags)
+lenght_profiles = len(list_profiles)
+
+if lenght_hashtags < lenght_profiles:
+    dif = lenght_profiles - lenght_hashtags
+    for i in range(dif):
+        list_hashtags.append("null")
+
+else:
+    dif = lenght_hashtags - lenght_profiles
+    for i in range(dif):
+        list_profiles.append("null")
+
+dict = {"Hashtag": list_hashtags, "Profiles": list_profiles }
+
+dados_insta = pd.DataFrame(data=dict)
+
+print(dados_insta)

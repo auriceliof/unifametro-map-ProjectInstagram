@@ -31,8 +31,10 @@ else:
     for i in range(dif):
         list_profiles.append("null")
 
-dict = {"Hashtag": list_hashtags, "Profiles": list_profiles }
+dict = {"Hashtag": list_hashtags, "Profiles": list_profiles}
 
 dados_insta = pd.DataFrame(data=dict)
+dados_insta.to_csv('pupulares.csv', sep=';')
 
 print(dados_insta)
+#print(dados_insta["Profiles"][2])
